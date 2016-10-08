@@ -52,6 +52,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-svg-sprites": "^4.0.2",
     "gulp-uglify": "^2.0.0",
+    "material-ui": "^0.16.0",
     "path": "^0.12.7",
     "stream-combiner2": "^1.1.1",
     "vinyl-buffer": "^1.0.0",

@@ -1,6 +1,7 @@
 import React from 'react';
+import LaterButton from '../LaterButton';
 
-class AnotherComponent extends React.Component {
+class Basic extends React.Component {
   constructor() {
     super();
   }
@@ -8,9 +9,19 @@ class AnotherComponent extends React.Component {
   render() {
 
     return (
-      <h1 className="wrapper">AnotherComponent</h1>
+      <div>
+        <h1 className="wrapper">Привет!</h1>
+        <p style={{fontWeight:'light'}}>В данный момент, сайт в разработке :(
+          <br/>я стараюсь, и скоро он будет сделан! :D</p>
+          <ul>
+            <li>Скоро здесь можно будет наблюдать прогресс:
+            <a href="/public">/public</a></li>
+          </ul>
+        <LaterButton />
+      </div>
+
     )
   }
 }
 
-export default AnotherComponent;
+export default Basic;
