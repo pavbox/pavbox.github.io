@@ -5,8 +5,16 @@ const style = {
   margin: '30px 0 0 0'
 };
 
-const LaterButton = () => (
-    <RaisedButton label="Let's Okay :)" primary={true} style={style} />
-);
+class LaterButton extends React.Component {
+  constructor() {
+    super();
+  }
+
+  render(){
+    return(
+      <RaisedButton label="Ну Окей :)" onClick={this.props.onClick} secondary={true} style={style} />
+    );
+  }
+}
 
 export default LaterButton;

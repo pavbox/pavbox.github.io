@@ -20,7 +20,7 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
-public
+# public
 tmp
 
 #debugs
