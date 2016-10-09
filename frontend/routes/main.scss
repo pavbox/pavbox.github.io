@@ -4,10 +4,10 @@ body {
   font-size: 16px;
   background: #eee;
   color: $fontColorMain;
+  transition: background 1s ease;
 
-  margin: 45px 65px;
-
-  & > div {
+  & > div > div > div {
     padding-left: 20px;
+    margin: 45px 65px;
   }
 }
