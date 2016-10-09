@@ -8,8 +8,6 @@ class Basic extends React.Component {
     this.state = {
       count: ''
     }
-
-//    this.clickerCount = this.clickerCount.bind(this);
   };
 
   clickerCount = () => {

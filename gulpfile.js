@@ -47,19 +47,36 @@ const _dirs = {
 }
 
 const config = {
-  prefix      : { browser: ['last 2 version'] },
   htmlmin     : { collapseWhitespace: true },
   clean       : ['public', 'tmp', 'manifest'],
+  prefix      : { browser: ['last 2 version'] },
   browserSync : { server: { baseDir: _dirs.public } },
 
-  revReplace  : { manifest:
-                  gulp.src(_dirs.manifest+'css.json', {allowEmpty: true})
-                },
-  plumb       : { errorHandler: notify.onError(err => ({ //error check
-                    title:   'styles',
-                    message: err.message }))
-                },
+  revReplace  : {
+    manifest: gulp.src(_dirs.manifest+'css.json', {allowEmpty: true})
+  },
+
+  plumb       : {
+    errorHandler: notify.onError(err => ({ //error check
+      title:   'styles',
+      message: err.message
+    }))
+  },
+
+  watchers    : {
+    styles: [_dirs.components+'**/*.scss', _dirs.routes+'**/*.scss'],
+    script: [_dirs.components+'**/*.js', _dirs.application, _dirs.routes+'**/*.js'],
+    assets: [_dirs.assets+'**/*.*'],
+    public: [_dirs.public + '**/*.*']
+  },
+
+  images      : {
+    source: [_dirs.assets+'**/*.{jpeg,svg,png}',
+             _dirs.components+'**/*.{jpeg,svg,png}',
+             _dirs.routes+'**/*.{jpeg,svg,png}']
+  }
 }
+
 
 // Сборка SASS стилей
 gulp.task('styles', function () {
@@ -94,10 +111,7 @@ gulp.task('assets:html', function () {
 
 // Оптимизация изображений
 gulp.task('assets:image', function () {
-  return gulp.src(
-        [_dirs.assets+'**/*.{jpeg,svg,png}',
-         _dirs.components+'**/*.{jpeg,svg,png}',
-         _dirs.routes+'**/*.{jpeg,svg,png}'])
+  return gulp.src(config.images.source)
         .on('data', function (file) {
           file.path = file.base+file.basename;
         })
@@ -112,18 +126,15 @@ gulp.task('clean', function() {
 // Поднятие сервера
 gulp.task('serve', function (){
   browserSync.init(config.browserSync);
-  browserSync.watch(_dirs.public + '**/*.*').on('change', browserSync.reload);
+  browserSync.watch(config.watchers.public).on('change', browserSync.reload);
 });
 
 
 // Отслеживание изменений в файлах
 gulp.task('watch', function() {
-  gulp.watch([ _dirs.components+'**/*.scss', _dirs.routes+'**/*.scss']
-             , gulp.series('styles'));
-  gulp.watch([ _dirs.components+'**/*.js', _dirs.application]
-             , gulp.series('bundle'));
-  gulp.watch(_dirs.assets+'**/*.*', gulp.series('assets:html'));
-
+  gulp.watch(config.watchers.styles, gulp.series('styles'));
+  gulp.watch(config.watchers.script, gulp.series('bundle'));
+  gulp.watch(config.watchers.assets, gulp.series('assets:html'));
 });
 
 
