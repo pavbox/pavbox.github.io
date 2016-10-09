@@ -12,7 +12,10 @@ class LaterButton extends React.Component {
 
   render(){
     return(
-      <RaisedButton label="Ну Окей :)" onClick={this.props.onClick} secondary={true} style={style} />
+      <RaisedButton label="Ну Окей :)"
+        onClick={this.props.clicker}
+        secondary={true}
+        style={style} />
     );
   }
 }

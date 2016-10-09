@@ -9,12 +9,12 @@ class Basic extends React.Component {
       count: ''
     }
 
-    this.clickerCount = this.clickerCount.bind(this);
-  }
+//    this.clickerCount = this.clickerCount.bind(this);
+  };
 
-  clickerCount() {
-    this.setState({count: +this.state.count + 1})
-  }
+  clickerCount = () => {
+    this.setState({count: +this.state.count + 1});
+  };
 
   render() {
     var clicks = this.state.count;
@@ -26,7 +26,7 @@ class Basic extends React.Component {
           <ul>
             <li>Скоро здесь можно будет наблюдать прогресс: <a href="/public">/public</a></li>
           </ul>
-        <LaterButton onClick={this.clickerCount} />
+        <LaterButton clicker={this.clickerCount} />
         <span className="counter">{clicks}</span>
       </div>
 
