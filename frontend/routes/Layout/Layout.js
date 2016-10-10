@@ -1,14 +1,13 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import StyleFactory from '../StyleFactory';
-import Basic from '../../components/Basic';
+import Navigation from '../Templates/Navigation';
 import Header from '../Templates/Header';
 import Footer from '../Templates/Footer';
+import StyleFactory from '../StyleFactory';
 
 class Layout extends React.Component {
   constructor() {
     super();
-
     StyleFactory.setBodyColor();
     StyleFactory.initColorTimeout(6000);
   }
@@ -16,11 +15,13 @@ class Layout extends React.Component {
   render(){
     return (
       <div>
+        <MuiThemeProvider>
+          <Navigation />
+        </MuiThemeProvider>
         <Header />
-          <MuiThemeProvider>
-            <Basic />
-          </MuiThemeProvider>
-        <Footer />
+        <div className='wrapper'>
+          {this.props.children}
+        </div>
       </div>
     );
   }

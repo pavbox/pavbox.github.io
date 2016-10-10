@@ -6,13 +6,15 @@ class Header extends React.Component {
   }
 
   render() {
-    let hero = 'seaside-day-cropped.png';
+    let hero = 'seaside-day-cropped-mini.png';
     let style = {
       width: '100%',
       top: 0
     }
     return (
-      <img src={hero} style={style} className="hero" />
+      <header>
+        <img src={hero} style={style} className="hero" />
+      </header>
     );
   }
 }

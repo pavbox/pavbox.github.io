@@ -1,13 +1,23 @@
 
 body {
-  font-family: $fontRoboto;
-  font-size: 16px;
+  //background: url('seaside-day-cropped.png') 0px 0px no-repeat;
+  //background-size: cover;
   background: #eee;
-  color: $fontColorMain;
   transition: background 1s ease;
+  font-family: $fontRoboto;
+  color: $fontColorMain;
+  font-size: 16px;
 
-  & > div > div > div {
+  & div.wrapper {
+    position: relative;
     padding-left: 20px;
-    margin: 45px 65px;
+    padding: 45px $contentOffset;
+
+  }
+
+  & .nav {
+    position: absolute;
+    margin: 45px $contentOffset;
+    right: 0;
   }
 }
