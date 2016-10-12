@@ -18,12 +18,6 @@ class Basic extends React.Component {
     var clicks = this.state.count;
     return (
       <div>
-        <h1 className="wrapper">Привет!</h1>
-        <p>В данный момент, сайт в разработке.
-          <br/>я стараюсь, и скоро он будет сделан! :D</p>
-          <ul>
-            <li>Скоро здесь можно будет наблюдать прогресс: <a href="/public">/public</a></li>
-          </ul>
         <LaterButton clicker={this.clickerCount} />
         <span className="counter">{clicks}</span>
       </div>

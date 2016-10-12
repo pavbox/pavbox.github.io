@@ -1,8 +1,12 @@
 
+html [type="button"] {
+  -webkit-appearance: inherit !important;
+}
+
 body {
   //background: url('seaside-day-cropped.png') 0px 0px no-repeat;
   //background-size: cover;
-  background: #eee;
+  background: #f5f5ff;
   transition: background 1s ease;
   font-family: $fontRoboto;
   color: $fontColorMain;
@@ -18,6 +22,5 @@ body {
   & .nav {
     position: absolute;
     margin: 45px $contentOffset;
-    right: 0;
   }
 }

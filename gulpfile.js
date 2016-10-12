@@ -71,9 +71,9 @@ const config = {
   },
 
   images      : {
-    source: [_dirs.assets+'**/*.{jpeg,svg,png}',
-             _dirs.components+'**/*.{jpeg,svg,png}',
-             _dirs.routes+'**/*.{jpeg,svg,png}']
+    source: [_dirs.assets+'**/*.{jpeg,jpg,svg,png}',
+             _dirs.components+'**/*.{jpeg,jpg,svg,png}',
+             _dirs.routes+'**/*.{jpeg,jpg,svg,png}']
   }
 }
 

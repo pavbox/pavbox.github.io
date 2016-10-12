@@ -8,8 +8,8 @@ import StyleFactory from '../StyleFactory';
 class Layout extends React.Component {
   constructor() {
     super();
-    StyleFactory.setBodyColor();
-    StyleFactory.initColorTimeout(6000);
+    //StyleFactory.setBodyColor();
+    //StyleFactory.initColorTimeout(6000);
   }
 
   render(){

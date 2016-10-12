@@ -43,7 +43,7 @@ import Drawer     from 'material-ui/Drawer';
     }
 
     const styleIconDisabled = {
-      opacity: '0.6'
+      opacity: '0.4'
     }
 
     return (
