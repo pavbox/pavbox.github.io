@@ -80,12 +80,13 @@ class Mainpage extends React.Component {
   }
 
   render(){
-    const text = `Any text. Any text. Any text. Any text. Any text. Any text.
-    Any text. Any text. Any text. Any text. Any text. Any text.
-    Any text. Any text. Any text. Any text. Any text. Any text.`;
+    const title='Pavel Marinchenko'
+    const subtitle='Front-end Developer'
+    const text = `Живу в Воронеже. Люблю печеньки и бигмаки. И еще пиццу... Ну и конфеты.
+                  Привет.`;
 
     const {stepIndex} = this.state;
-    const array = [
+    const historyData = [
       {
         stepIndex: 0,
         title: 'start it',
@@ -100,9 +101,10 @@ class Mainpage extends React.Component {
 
     return (
       <div className='mainpage'>
+      <section className='AboutMe'>
         <HistoryCard
-          title='Pavel Marinchenko'
-          subtitle='Front-end Developer'
+          title={title}
+          subtitle={subtitle}
           text={text}>
           <MuiThemeProvider>
             <Stepper
@@ -110,14 +112,14 @@ class Mainpage extends React.Component {
               linear={false}
               orientation="vertical">
 
-              {array.map((array) => (
-                <Step key={array.stepIndex}>
-                  <StepButton onTouchTap={() => this.setState({stepIndex: array.stepIndex})}>
-                    {array.title}
+              {historyData.map((historyData) => (
+                <Step key={historyData.stepIndex}>
+                  <StepButton onTouchTap={() => this.setState({stepIndex: historyData.stepIndex})}>
+                    {historyData.title}
                   </StepButton>
                   <StepContent>
-                    <p>{array.desctiption}</p>
-                    {this.renderStepActions(array.stepIndex)}
+                    <p>{historyData.desctiption}</p>
+                    {this.renderStepActions(historyData.stepIndex)}
                   </StepContent>
                 </Step>
               ))}
@@ -125,6 +127,9 @@ class Mainpage extends React.Component {
             </Stepper>
           </MuiThemeProvider>
         </HistoryCard>
+      </section>
+      <section className='TodaySkills'></section>
+      <section className='FutureSkills'></section>
       </div>
     );
   }

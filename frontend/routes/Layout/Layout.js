@@ -22,6 +22,7 @@ class Layout extends React.Component {
         <div className='wrapper'>
           {this.props.children}
         </div>
+        <Footer />
       </div>
     );
   }
