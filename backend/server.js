@@ -1,12 +1,12 @@
-const http = require('http'),
-        fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
 const hostname = '127.0.0.1';
-const port = 3000;
+const port = 80;
 const __rootpath = __dirname + "/../public/";
 
 const server = http.createServer((req, res) => {
-	if (!req.err){ console.log(req.url);}
+	if (!req.err) { console.log(req.url); }
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'text/html');
 

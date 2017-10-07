@@ -1,65 +1,39 @@
 {
-  "name": "portfolio_web",
-  "version": "0.4.0",
+  "name": "pavbox_web",
+  "version": "1.9.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gprod": "NODE_ENV=production gulp dev",
-    "gdev": "gulp dev"
+    "gdev": "gulp dev",
+    "start": "webpack-dev-server --inline --progress --port 8080",
+    "build": "webpack --config webpack.config.js --progress --profile --display-error-details"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PaVM/pavm.github.io.git"
+    "url": "git+https://github.com/pavbox/pavbox.github.io.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PaVM/pavm.github.io/issues"
+    "url": "https://github.com/pavbox/pavbox.github.io/issues"
   },
-  "homepage": "https://github.com/PaVM/pavm.github.io#readme",
+  "homepage": "https://github.com/pavbox/pavbox.github.io#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "history": "^4.3.0",
-    "normalize-scss": "^5.0.3",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1",
-    "react-router": "^2.8.1",
-    "react-tap-event-plugin": "^1.0.0",
-    "reset-css": "^2.2.0"
+    "normalize-scss": "^5.0.3"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.5.0",
-    "babelify": "^7.3.0",
-    "browser-sync": "^2.14.0",
-    "browserify": "^13.1.0",
-    "del": "^2.2.1",
-    "fs": "0.0.2",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.6.0",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-debug": "^2.1.2",
-    "gulp-htmlmin": "^2.0.0",
-    "gulp-if": "^2.0.1",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-react": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-rev": "^7.1.0",
-    "gulp-rev-replace": "^0.4.3",
-    "gulp-sass": "^2.3.2",
-    "gulp-sass-glob": "^1.0.6",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-svg-sprites": "^4.0.2",
-    "gulp-uglify": "^2.0.0",
-    "material-ui": "^0.16.0",
-    "path": "^0.12.7",
-    "stream-combiner2": "^1.1.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.28.0",
+    "style-loader": "^0.16.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
   }
 }
