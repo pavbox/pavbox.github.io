@@ -19,6 +19,8 @@ const server = http.createServer((req, res) => {
 
 	if (req.url == '/index.html' || req.url == '/') {
     new fs.ReadStream(__rootpath + "index.html").pipe(res);
+	} else if (req.url != '/favicon.ico') {
+		new fs.ReadStream(__rootpath + req.url).pipe(res);
 	}
 });
 

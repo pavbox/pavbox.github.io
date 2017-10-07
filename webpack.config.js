@@ -1,11 +1,14 @@
-var path = require('path');
+const path = require('path');
 const webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Uglify = require('uglifyjs-webpack-plugin');
+const stylus_plugin = require('stylus-loader');
 
 
 const config = {
   entry: './frontend/main.js',
+  devtool: 'source-map',
 
   output: {
     filename: 'bundle.js',
@@ -14,6 +17,14 @@ const config = {
 
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
+      },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
@@ -45,6 +56,12 @@ const config = {
   },
 
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      uglifyOptions: { compress: true }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    }),
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       template: './frontend/assets/index.html'
