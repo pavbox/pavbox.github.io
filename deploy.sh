@@ -8,8 +8,7 @@
 # @required git, npm and nodejs
 # @recommended nodejs 8.6.0+
 
-rm -rf * .*
-ls -al
+rm -rf * .* 2> /dev/null
 
 git clone https://github.com/pavbox/pavbox.github.io.git .
 
