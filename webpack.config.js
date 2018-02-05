@@ -55,9 +55,9 @@ const config = {
   ]},
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      uglifyOptions: { compress: true }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   uglifyOptions: { compress: true }
+    // }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
