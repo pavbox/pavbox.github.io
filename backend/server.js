@@ -1,30 +1,45 @@
-const http = require('http');
-const fs = require('fs');
+
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const sendmail = require('sendmail')();
 
 const hostname = 'pavbox.com';
-const port = 80;
-const __rootpath = __dirname + "/../public/";
+const port = 8080;
+const __rootpath = path.dirname(__dirname + "/../public/");
 
-const server = http.createServer((req, res) => {
-	if (!req.err) { console.log(req.url); }
-	res.statusCode = 200;
+const app = express();
 
-  if (req.url.indexOf('.css') > 0) {
-    res.setHeader('Content-Type', 'text/css');
-  } else if (req.url.indexOf('.js') > 0) {
-    res.setHeader('Content-Type', 'text/javascript');
-  } else {
-    res.setHeader('Content-Type', 'text/html');
-  }
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-	if (req.url == '/index.html' || req.url == '/') {
-    new fs.ReadStream(__rootpath + "index.html").pipe(res);
-	} else if (req.url != '/favicon.ico') {
-		new fs.ReadStream(__rootpath + req.url).pipe(res);
-	}
+/**
+ * Default blank page.
+ */
+app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
+
+app.get(/\/(index)?/, function (req, res) {
+	res.sendFile(path.join(__dirname + '/../public/index.html'));
 });
 
+app.get('/send', function (req, res) {
+	res.sendFile(path.join(__dirname + '/../public/send.html'));
+});
 
-server.listen(port, hostname, function() {
-  console.log(`Server Running`);
+app.post('/request', function (req, res) {
+	sendmail({
+	    from: 'no-reply@pavbox.com',
+	    to: 'pavlikprogrammer@mail.ru',
+	    subject: '[ WARN ] Amount Request',
+	    html: '<span>' + req.body.amount + '</span>',
+	  }, function(err, reply) {
+	    console.log(err && err.stack);
+	    console.dir(reply);
+	});
+});
+
+app.listen(port, () => {
+  console.log('-----------------------------------------');
+  console.log('-      Serving pavbox.com website.      -');
+  console.log('-----------------------------------------');
 });
