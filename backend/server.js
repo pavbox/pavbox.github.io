@@ -1,60 +1,47 @@
-const http = require('http');
-const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
 const sendmail = require('sendmail')();
 
 const hostname = 'pavbox.com';
-const port = 80;
-const __rootpath = __dirname + "/../public/";
+const port = 8080;
+const __rootpath = path.dirname(__dirname + "/../public/");
 
-const server = http.createServer((req, res) => {
-	if (!req.err) { console.log(req.url); }
-	res.statusCode = 200;
+const app = express();
 
-  if (req.url.indexOf('.css') > 0) {
-    res.setHeader('Content-Type', 'text/css');
-  } else if (req.url.indexOf('.js') > 0) {
-    res.setHeader('Content-Type', 'text/javascript');
-  } else {
-    res.setHeader('Content-Type', 'text/html');
-  }
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-	switch (req.url) {
-		case '/':
-		case '/index.html':
-			new fs.ReadStream(__rootpath + "index.html").pipe(res);
-			break;
-		case '/send.html':
-			new fs.ReadStream(__rootpath + "send.html").pipe(res);
-			break;
-		case '/request':
-			sendmail({
-			    from: 'no-reply@pavbox.com',
-			    to: 'pavlikprogrammer@mail.ru',
-			    subject: '[ WARN ] Amount Request',
-			    html: '<span>' + req.body.amount + '</span>',
-			  }, function(err, reply) {
-			    console.log(err && err.stack);
-			    console.dir(reply);
-			});
-			break;
-		default:
-			try {
-	      fs.mkdirSync(path);
-				new fs.ReadStream(__rootpath + req.url).pipe(res);
-	    } catch (err) {
-	      if (err.code !== 'EEXIST') {
-	        console.log(err);
-	      }
+/**
+ * Default blank page.
+ */
 
-				res.writeHead(302, {
-				  'Location': '/index.html'
-				});
-				res.end();
-			}
-	}
+app.get(/\/(index)?/, function (req, res) {
+	fs.readFile(__dirname + './../public/index.html', 'utf8', function(err, text) {
+  	res.send(text);
+  });
 });
 
+app.get('/send', function (req, res) {
+	fs.readFile(__dirname + './../public/send.html', 'utf8', function(err, text) {
+  	res.send(text);
+  });
+});
 
-server.listen(port, hostname, function() {
-  console.log(`Server Running`);
+app.post('/request', function (req, res) {
+	sendmail({
+	    from: 'no-reply@pavbox.com',
+	    to: 'pavlikprogrammer@mail.ru',
+	    subject: '[ WARN ] Amount Request',
+	    html: '<span>' + req.body.amount + '</span>',
+	  }, function(err, reply) {
+	    console.log(err && err.stack);
+	    console.dir(reply);
+	});
+});
+
+app.listen(port, () => {
+  console.log('-----------------------------------------');
+  console.log('-      Serving pavbox.com website.      -');
+  console.log('-----------------------------------------');
 });
