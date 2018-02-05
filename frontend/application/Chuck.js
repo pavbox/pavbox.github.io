@@ -50,7 +50,6 @@ class Chuck {
   }
 
 
-
   talk(e) {
     let item = e.target;
     item.classList.remove('animation-focused')

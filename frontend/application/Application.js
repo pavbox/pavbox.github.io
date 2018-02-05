@@ -35,7 +35,7 @@ class Application {
     this.chuckImage.removeEventListener('mouseout',  this.Chuck.mouseleftFromChuck);
     this.chuckImage.removeEventListener('mouseover', this.Chuck.mouseoverChuck);
     this.chuckImage.removeEventListener('click',     this.Chuck.talk);
-    this.chuckImage.removeEventListener('click',     this.thanks);
+    this.chuckImage.removeEventListener('click',     this.Chuck.thanks);
 
     this.chuckImage.addEventListener('click', this.Chuck.thanks);
     this.closeChuck.addEventListener('click', this.Chuck.thanks);

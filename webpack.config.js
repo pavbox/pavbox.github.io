@@ -52,19 +52,22 @@ const config = {
           name: './img/[name].[ext]'
         },
       }
-    ]
-  },
+  ]},
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      uglifyOptions: { compress: true }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   uglifyOptions: { compress: true }
+    // }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       template: './frontend/assets/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'send.html',
+      template: './frontend/assets/send.html'
     })
   ]
 }
