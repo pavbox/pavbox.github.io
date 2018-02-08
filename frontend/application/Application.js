@@ -1,6 +1,7 @@
 
 import './../stylesheets/main.styl';
 import realImage from './../assets/pixel_chuck.png';
+import favicon from './../assets/favicon.ico';
 import Chuck from './Chuck';
 
 

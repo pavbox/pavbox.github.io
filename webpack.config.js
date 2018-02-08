@@ -45,7 +45,7 @@ const config = {
         loader: 'file-loader?name=fonts/[name].[ext]'
       },
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpg|png|svg|ico)$/,
         loader: 'url-loader',
         options: {
           limit: 25000,

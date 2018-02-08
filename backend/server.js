@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const sendmail = require('sendmail')();
 
 const hostname = 'pavbox.com';
-const port = 8080;
-const __rootpath = path.dirname(__dirname + '/public/');
+const port = 80;
+__dirname = path.join(__dirname + './../public/');
 
 const app = express();
 
@@ -16,14 +16,13 @@ app.use(bodyParser.json());
 /**
  * Default blank page.
  */
-app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-	new fs.ReadStream(path.join(__rootpath + 'index.html')).pipe(res)
+	new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
 });
 
 app.get('/send', function (req, res) {
-	new fs.ReadStream(path.join(__rootpath + 'send.html')).pipe(res)
+	new fs.ReadStream(path.join(__dirname + 'send.html')).pipe(res)
 });
 
 app.post('/request', function (req, res) {
@@ -40,19 +39,20 @@ app.post('/request', function (req, res) {
 
 app.get('*', function (req, res) {
 	if (req.url.indexOf('.css') > 0) {
-     res.setHeader('Content-Type', 'text/css');
-   } else if (req.url.indexOf('.js') > 0) {
-     res.setHeader('Content-Type', 'text/javascript');
-   } else {
-     res.setHeader('Content-Type', 'text/html');
-   }
+	 res.setHeader('Content-Type', 'text/css');
+	} else if (req.url.indexOf('.js') > 0) {
+	 res.setHeader('Content-Type', 'text/javascript');
+	} else {
+	 res.setHeader('Content-Type', 'text/html');
+	}
 
-	 try {
-	 	new fs.ReadStream(path.join(__rootpath + req.url)).pipe(res)
+	try {
+		new fs.ReadStream(path.join(__dirname + req.url)).pipe(res)
 	} catch (e) {
+		console.log(e);
 		res.end()
 	}
-})
+});
 
 app.listen(port, () => {
   console.log('-----------------------------------------');
