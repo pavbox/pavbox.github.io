@@ -31,9 +31,9 @@ class Network {
         }
     };
 
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = resolver;
     xhr.open('POST', '/request', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send(parameters);
   }
 }

@@ -17,7 +17,7 @@ app.use(bodyParser.json());
  * Default blank page.
  */
 
-app.get('/', function (req, res) {
+app.get(/\/(index)?/, function (req, res) {
 	new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
 });
 
