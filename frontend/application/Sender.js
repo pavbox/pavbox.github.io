@@ -35,7 +35,6 @@ class Sender {
   }
 
   send() {
-    console.log(this.amountField.value)
     let value = this.amountField.value;
     this.network.sendNumber(value)
   }
