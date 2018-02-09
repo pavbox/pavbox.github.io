@@ -47,12 +47,15 @@ app.get('*', function (req, res) {
 	} else if (isJS) {
 	 res.setHeader('Content-Type', 'text/javascript');
 	} else {
-	 res.end()
+	 res.setHeader('Content-Type', 'text/html');
 	}
 
 	try {
-		if (isJS || isCSS) {
-			new fs.ReadStream(path.join(__dirname + req.url)).pipe(res)
+		let filePath = path.join(__dirname + req.url)
+		if (fs.existsSync(filePath)) {
+	    new fs.ReadStream(filePath).pipe(res)
+		} else {
+			res.redirect('/')
 		}
 	} catch (e) {
 		console.log(e);

@@ -1,7 +1,7 @@
 
 import Application from './application/Application';
 import Sender from './application/Sender';
-import './../assets/favicon.ico';
+import './assets/favicon.ico';
 
 const isSender = document.querySelector('html').getAttribute('role')
 
