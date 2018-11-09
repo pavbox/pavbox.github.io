@@ -40,3 +40,45 @@
 .net__ico--inst {
   color #c13584
 }
+
+// Temoporary Android Link
+
+.net__ico--android-kit {
+
+}
+
+.net__ico--android-kit:hover {
+  font-size 35px
+}
+
+.net__ico--android-kit svg {
+  animation-name animation-android
+  animation-duration 5s
+  animation-delay 2s
+  animation-iteration-count infinite
+  animation-direction normal
+  animation-timing-function ease-in
+  animation-fill-mode forwards
+
+  height 26px
+  width 26px
+}
+
+.net__ico--android-kit svg:hover {
+  height 30px
+  width 30px
+
+  transition all 0.3s ease
+}
+
+@keyframes animation-android {
+  0%   { transform: rotate(0deg);  }
+  4%   { transform: rotate(20deg); }
+  7%   { transform: rotate(7deg);  }
+  11%  { transform: rotate(25deg); }
+  15%  { transform: rotate(4deg);  }
+  17%  { transform: rotate(17deg); }
+  20%  { transform: rotate(4deg);  }
+  22%  { transform: rotate(0deg);  }
+  100% { transform: rotate(0deg);  }
+}
