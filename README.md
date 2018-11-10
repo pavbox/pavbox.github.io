@@ -1,10 +1,5 @@
 
-
-### status
-
-CI: [![Build Status](https://travis-ci.org/pavbox/pavbox.github.io.svg?branch=master)](https://travis-ci.org/pavbox/pavbox.github.io)
-
-### what is this
+## what is this
 
 ```
 Simple website as visit card.
@@ -15,3 +10,7 @@ Build on stack:
 JS ES6, NodeJS, Webpack, Stylus.
 
 ```
+
+### status
+
+[![Build Status](https://travis-ci.org/pavbox/pavbox.github.io.svg?branch=master)](https://travis-ci.org/pavbox/pavbox.github.io)
