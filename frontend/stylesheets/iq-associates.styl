@@ -1,7 +1,6 @@
 
 .iq-associates {
   margin-top 35px
-  padding-bottom 150px
 }
 
 .iq-associates__title {
@@ -15,6 +14,19 @@
     & {
       font-size 18px
       text-align center
+    }
+  }
+}
+.iq-associates__subtitle {
+  display block
+  margin-bottom 7px
+  font-family ralewayRegular
+  font-size 13px
+  color #333
+
+  @media only screen and (max-width: 600px) {
+    & {
+      text-align center
       margin-bottom 15px
     }
   }
@@ -26,14 +38,11 @@
   position relative
   display block
   margin-top 45px
-  padding 5px 0px 5px 70px
+  padding 15px 0px 15px 70px
 
   font-family ralewayRegular
   font-size 16px
   color #333
-
-  line-height 50px
-  height 45px
 
   border-radius 1px
   cursor pointer
@@ -51,7 +60,7 @@
   width 30px
 
   left 6px
-  top 80px
+  top 70px
 
   border 1px dashed #aaa
 }
@@ -62,7 +71,8 @@
 
 .iq-associates__type object {
   position absolute
-  margin-left -70px
   height 45px
   width 45px
+  left 0
+  top 0
 }
