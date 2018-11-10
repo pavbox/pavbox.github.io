@@ -67,10 +67,12 @@ const config = {
     }),
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
-      template: './frontend/assets/index.html'
+      template: './frontend/assets/index.html',
+      filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
-      template: './frontend/assets/iq.html'
+      template: './frontend/assets/iq.html',
+      filename: 'iq.html'
     })
   ]
 }

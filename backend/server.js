@@ -22,6 +22,10 @@ app.use(bodyParser.json());
  	new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
  });
 
+ app.get(/(iq|iq.html)/i, function (req, res) {
+ 	new fs.ReadStream(path.join(__dirname + 'iq.html')).pipe(res)
+ });
+
 app.get('*', function (req, res) {
 	let isCSS = (req.url.indexOf('.css') > 0)
 	let isJS = (req.url.indexOf('.js') > 0)
