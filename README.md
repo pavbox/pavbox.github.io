@@ -7,8 +7,7 @@ Sometime has a few fun features.
 
 Build on stack:
 
-JS ES6, NodeJS, Webpack, Stylus.
-
+es2015+, stylus, webpack, node (express).
 ```
 
 ### status
