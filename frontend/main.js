@@ -12,4 +12,4 @@ import './assets/img/stone.svg';
 
 const application = (window.location.pathname.includes('iq')) ? new IQChecker() : new Application();
 
-new IQChecker().init();
+application.init();

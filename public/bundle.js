@@ -95,7 +95,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import images
 var application = window.location.pathname.includes('iq') ? new _IQChecker2.default() : new _Application2.default();
 
-new _IQChecker2.default().init();
+application.init();
 
 /***/ }),
 /* 1 */
