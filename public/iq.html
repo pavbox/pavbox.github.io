@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Your IQ Rate</title>
+<link href="styles.css" rel="stylesheet"></head>
+<body class="page  page--iq">
+    <div class="container">
+      <div class="test-preview">
+        <h2 class="test-preview__title">Тест Джеффа Хаймена</h2>
+        <span class="test-preview__subtitle">Для определения реального IQ, основываясь на исследованиях в конкретных профессиях.</span>
+        <span class="test-preview__subtitle">Тест составлен таким образом, чтобы повторное его прохождение имело такой же объективный результат</span>
+        <span class="test-preview__subtitle">Для прохождения теста, вам необходимо убрать постронние отвлекающие предметы.</span>
+      </div>
+
+      <div class="spheres">
+        <span class="spheres__title">Выберите профессию, максимально подходящую под ваш тип личности:</span>
+        <div class="spheres__list">
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Художник</div>
+          </label>
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Программист</div>
+          </label>
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Библиотекарь</div>
+          </label>
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Блоггер</div>
+          </label>
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Юрист</div>
+          </label>
+        </div>
+      </div>
+
+      <div class="iq-run">
+        <button type="button" name="iq-run" class="iq-run__button">Начать тест</button>
+      </div>
+
+      <div class="iq-result">
+        <span class="iq-result__title">Ты че, тупой что ли? Доверять тестам, ну жесть</span>
+        <span class="iq-result__iq">Твой IQ <span class="iq-result__iq--colored">менее 60</span></span>
+
+        <div class="iq-associates">
+          <span class="iq-associates__title">Определение уровня IQ в сравнении с реальными показателями</span>
+
+          <div class="iq-associates__list">
+            <div class="iq-associates__type">
+              <object type="image/svg+xml" data="img/man.svg">
+                Doesn't support svg
+              </object>
+              <span>Обычный человек (110 баллов)</span>
+            </div>
+            <div class="iq-associates__type">
+              <object type="image/svg+xml" data="img/baby.svg">
+                Doesn't support svg
+              </object>
+              <span>Ребенок (85 баллов)</span>
+            </div>
+            <div class="iq-associates__type  iq-associates__type--active">
+              <object type="image/svg+xml" data="img/star.svg">
+                Doesn't support svg
+              </object>
+              <span id="troll_name">Ты (60 баллов)</span>
+            </div>
+            <div class="iq-associates__type">
+              <object type="image/svg+xml" data="img/cow.svg">
+                Doesn't support svg
+              </object>
+              <span>Корова (45 баллов)</span>
+            </div>
+            <div class="iq-associates__type">
+              <object type="image/svg+xml" data="img/stone.svg">
+                Doesn't support svg
+              </object>
+              <span>Камень (25 баллов)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>

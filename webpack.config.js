@@ -59,9 +59,9 @@ const config = {
   ]},
 
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin({
-    //   uglifyOptions: { compress: true }
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      uglifyOptions: { compress: true }
+    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
@@ -72,7 +72,7 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       template: './frontend/assets/iq.html',
-      filename: 'index.html'
+      filename: 'iq.html'
     })
   ]
 }
