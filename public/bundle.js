@@ -76,6 +76,14 @@ var _Application2 = _interopRequireDefault(_Application);
 
 __webpack_require__(6);
 
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./assets/img/iq-test/baby.svg\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./assets/img/iq-test/cow.svg\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./assets/img/iq-test/man.svg\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./assets/img/iq-test/stone.svg\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var application = new _Application2.default();

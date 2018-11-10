@@ -1,0 +1,60 @@
+
+.iq-associates {
+  margin-top 35px
+  padding-bottom 150px
+}
+
+.iq-associates__title {
+  display block
+  margin-bottom 7px
+  font-family ralewayRegular
+  font-size 20px
+  color #333
+}
+
+.iq-associates__list { }
+
+.iq-associates__type {
+  position relative
+  display block
+  margin-top 45px
+  padding 5px 0px 5px 70px
+
+  font-family ralewayRegular
+  font-size 16px
+  color #333
+
+  line-height 50px
+  height 45px
+
+  border-radius 1px
+  cursor pointer
+}
+
+.iq-associates__type:hover {
+  background-color rgba(0, 0, 0, 0.1);
+}
+
+.iq-associates__type:not(:last-child)::after {
+  content ''
+  position absolute
+  transform rotate(90deg)
+  height 0px
+  width 30px
+
+  left 6px
+  top 80px
+
+  border 1px dashed #aaa
+}
+
+.iq-associates__type--active {
+  color #d84289
+}
+
+
+.iq-associates__type img {
+  position absolute
+  margin-left -70px
+  height 45px
+}

@@ -41,11 +41,15 @@ const config = {
         })
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'file-loader?name=fonts/[name].[ext]'
       },
       {
-        test: /\.(jpg|png|svg|ico)$/,
+        test: /\.svg$/,
+        loader: 'file-loader?name=img/[name].[ext]'
+      },
+      {
+        test: /\.(jpg|png|ico)$/,
         loader: 'url-loader',
         options: {
           limit: 25000,
@@ -64,6 +68,9 @@ const config = {
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       template: './frontend/assets/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './frontend/assets/iq.html'
     })
   ]
 }

@@ -7,44 +7,73 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Your IQ Rate</title>
 </head>
-<body class="page">
+<body class="page  page--iq">
     <div class="container">
       <div class="test-preview">
         <h2 class="test-preview__title">Тест Джеффа Хаймена</h2>
         <span class="test-preview__subtitle">Для определения реального IQ, основываясь на исследованиях в конкретных профессиях.</span>
         <span class="test-preview__subtitle">Тест составлен таким образом, чтобы повторное его прохождение имело такой же объективный результат</span>
-        <span class="test-preview__subtitle">Для прохождения теста, вам необходимо убрать постронние отвлекающие факторы.</span>
+        <span class="test-preview__subtitle">Для прохождения теста, вам необходимо убрать постронние отвлекающие предметы.</span>
       </div>
 
       <div class="spheres">
         <span class="spheres__title">Выберите профессию, максимально подходящую под ваш тип личности:</span>
         <div class="spheres__list">
-          <span class="spheres__type">Художник</span>
-          <span class="spheres__type">Программист</span>
-          <span class="spheres__type">Библиотекарь</span>
-          <span class="spheres__type">Блоггер</span>
-          <span class="spheres__type">Юрист</span>
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Художник</div>
+          </label>
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Программист</div>
+          </label>
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Библиотекарь</div>
+          </label>
+          <label class="spheres__type">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Блоггер</div>
+          </label>
+          <label class="spheres__type  spheres__type--checked">
+            <input type="checkbox">
+            <div class="spheres__mark  noselect">Юрист</div>
+          </label>
         </div>
       </div>
 
       <div class="iq-run">
-        <button type="button" name="iq-run">Начать тест</button>
-        <!-- TODO: Loader state -->
+        <button type="button" name="iq-run" class="iq-run__button">Начать тест</button>
       </div>
 
       <div class="iq-result">
-        <span class="iq-result__title">Ты че, долбан что ли? Доверять тестам, ну жесть</span>
-        <span class="iq-result__iq">Твой IQ: менее 60</span>
+        <span class="iq-result__title">Ты че, тупой что ли? Доверять тестам, ну жесть</span>
+        <span class="iq-result__iq">Твой IQ <span class="iq-result__iq--colored">менее 60</span></span>
 
         <div class="iq-associates">
-          <span class="iq-associates__title">Определение IQ в сравнении с реальными предметами</span>
+          <span class="iq-associates__title">Определение уровня IQ в сравнении с реальными показателями</span>
 
           <div class="iq-associates__list">
-            <div class="iq-associates__type">iq 110 - обычный человек</div>
-            <div class="iq-associates__type">iq 85 - ребенок</div>
-            <div class="iq-associates__type">iq 60 - ты</div>
-            <div class="iq-associates__type">iq 45 - корова</div>
-            <div class="iq-associates__type">iq 25 – камень</div>
+            <div class="iq-associates__type">
+              <img src="img/man.svg" alt="man">
+              <span>Обычный человек (110 баллов)</span>
+            </div>
+            <div class="iq-associates__type">
+              <img src="img/baby.svg" alt="baby">
+              <span>Ребенок (85 баллов)</span>
+            </div>
+            <div class="iq-associates__type  iq-associates__type--active">
+              <img src="img/star.svg" alt="stone">
+              <span id="troll_name">Ты (60 баллов)</span>
+            </div>
+            <div class="iq-associates__type">
+              <img src="img/cow.svg" alt="man">
+              <span>Корова (45 баллов)</span>
+            </div>
+            <div class="iq-associates__type">
+              <img src="img/stone.svg" alt="man">
+              <span>Камень (25 баллов)</span>
+            </div>
           </div>
         </div>
 
