@@ -72,7 +72,7 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       template: './frontend/assets/iq.html',
-      filename: 'iq.html'
+      filename: 'index.html'
     })
   ]
 }
