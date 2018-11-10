@@ -29,13 +29,14 @@ app.use(bodyParser.json());
 app.get('*', function (req, res) {
 	let isCSS = (req.url.indexOf('.css') > 0)
 	let isJS = (req.url.indexOf('.js') > 0)
+	let isSVG = (req.url.indexOf('.svg') > 0)
 
 	if (isCSS) {
 	 res.setHeader('Content-Type', 'text/css');
 	} else if (isJS) {
 	 res.setHeader('Content-Type', 'text/javascript');
-	} else {
-	 res.setHeader('Content-Type', 'text/html');
+  } else if (isSVG) {
+	 res.setHeader('Content-Type', 'text/xml');
 	}
 
 	try {
