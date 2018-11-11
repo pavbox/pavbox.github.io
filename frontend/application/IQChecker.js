@@ -25,7 +25,7 @@ class IQChecker {
       }
     })
 
-    // nameLabel.innerHTML = isAdvocateSelected ? 'Настя (60 баллов)' : 'Ты (60 баллов)'
+    nameLabel.innerHTML = isAdvocateSelected ? 'Настя (60 баллов)' : 'Ты (60 баллов)'
     result.classList.add('iq-result--visible')
 
     result.scrollIntoView({
