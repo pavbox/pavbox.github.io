@@ -20,22 +20,6 @@ class Network {
     xhr.open("GET", "https://api.chucknorris.io/jokes/random", true);
     xhr.send();
   }
-
-  sendNumber(number) {
-    const xhr = new XMLHttpRequest();
-    const parameters = 'number=' + number;
-
-    const resolver = function() {
-        if (this.readyState == 4 && this.status == 200) {
-           console.log(this.readyState)
-        }
-    };
-
-    xhr.onreadystatechange = resolver;
-    xhr.open('POST', '/request', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.send(parameters);
-  }
 }
 
 export default Network;
