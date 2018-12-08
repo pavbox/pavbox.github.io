@@ -60,10 +60,8 @@ class Chuck {
     this.jokeBoard.classList.add('chuck__joke--open');
     this.network.getJoke();
 
-    setTimeout(() => {
-      // slow unsetting events
-      item.style.bottom = "10px";
-    }, 10);
+    // slow unsetting events
+    setTimeout(() => { item.style.bottom = "10px" }, 10);
   }
 
 
@@ -74,9 +72,7 @@ class Chuck {
     this.initDefaultEvents();
     this.jokeBoard.classList.remove('chuck__joke--open');
 
-    setTimeout(() => {
-      this.chuckImage.removeAttribute('style');
-    }, 0);
+    setTimeout(() => { this.chuckImage.removeAttribute('style') }, 0);
   }
 }
 
