@@ -10,7 +10,6 @@ class Network {
     const resolver = function() {
         if (this.readyState == 4 && this.status == 200) {
            let joke = JSON.parse(xhr.responseText).value;
-
            let board = document.querySelector('.chuck__content');
            board.innerHTML = joke;
         }

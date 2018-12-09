@@ -3,7 +3,6 @@ import Network from './Network';
 
 class Chuck {
   constructor(initDefaultEvents, unsetDefaultEvents, chuckImage) {
-
     this.talk = this.talk.bind(this); // call chuck
     this.thanks = this.thanks.bind(this); // close chuck
     this.mouseoverChuck = this.mouseoverChuck.bind(this);
@@ -49,7 +48,6 @@ class Chuck {
     }
   }
 
-
   talk(e) {
     let item = e.target;
     item.classList.remove('animation-focused')
@@ -63,7 +61,6 @@ class Chuck {
     // slow unsetting events
     setTimeout(() => { item.style.bottom = "10px" }, 10);
   }
-
 
   thanks(e) {
     let item = e.target;
