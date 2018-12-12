@@ -3,11 +3,18 @@
 
 ```
 Simple website as visit card.
-Sometime has a few fun features.
+Sometime you can find a few fun features.
 
 Build on stack:
 
-es2015+, stylus, webpack, node (express).
+- es2015+, stylus, webpack,
+- node (express).
+
+Supports:
+
+- CI
+- CD and container in plans
+
 ```
 
 ### status
