@@ -69,10 +69,6 @@ const config = {
     new HtmlWebpackPlugin({
       template: './frontend/assets/index.html',
       filename: 'index.html'
-    }),
-    new HtmlWebpackPlugin({
-      template: './frontend/assets/iq.html',
-      filename: 'iq.html'
     })
   ]
 }
