@@ -2,9 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const strictTransportSecurity = require("hsts");
+const https = require("https");
 
 const hostname = 'pavbox.com';
-const port = 80;
+const port = 443;
 
 __rootpath = path.join(__dirname + './../');
 __dirname = path.join(__dirname + './../public/');
@@ -13,6 +15,11 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+const options = {
+  key: fs.readFileSync(path.join(__rootpath + "backend/.certs/private_key.pem")),
+  cert: fs.readFileSync(path.join(__rootpath + "backend/.certs/fullchain_key.pem"))
+};
 
 /**
  * Routes.
@@ -31,26 +38,29 @@ app.get('*', function (req, res) {
 	 res.setHeader('Content-Type', 'text/css');
 	} else if (isJS) {
 	 res.setHeader('Content-Type', 'text/javascript');
-  } else if (isSVG) {
+        } else if (isSVG) {
 	 res.setHeader('Content-Type', 'text/xml');
 	}
 
 	try {
 		let filePath = path.join(__dirname + req.url)
 		if (fs.existsSync(filePath)) {
-	    new fs.ReadStream(filePath).pipe(res)
+			new fs.ReadStream(filePath).pipe(res)
 		} else {
-			res.redirect('/')
+      res.redirect('/')
 		}
+		console.log("url: " + filePath);
 	} catch (e) {
 		console.log(e);
 	} finally {
-    console.log('exception is out');
+		console.log('exception is out');
 	}
 });
 
-app.listen(port, () => {
-  console.log('-----------------------------------------');
-  console.log('-      Serving pavbox.com website.      -');
-  console.log('-----------------------------------------');
-});
+https.createServer(options, app).listen(443);
+
+var http = require('http');
+http.createServer(function (req, res) {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(80);
