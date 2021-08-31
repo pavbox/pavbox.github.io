@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "build": "webpack --config webpack.config.js --progress --profile --display-error-details"
+    "build": "webpack --config webpack.config.js --progress --profile"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "stylus-loader": "3.0.1",
     "uglifyjs-webpack-plugin": "0.4.6",
     "url-loader": "0.6.2",
+    "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0"
   }
 }
