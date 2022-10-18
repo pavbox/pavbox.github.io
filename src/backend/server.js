@@ -9,7 +9,7 @@ const hostname = 'pavbox.com';
 const port = 443;
 
 __rootpath = path.join(__dirname + './../');
-__dirname = path.join(__dirname + './../public/');
+__dirname = path.join(__dirname + './../dist/');
 
 const app = express();
 
