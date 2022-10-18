@@ -8,8 +8,8 @@ const https = require("https");
 const hostname = 'pavbox.com';
 const port = 443;
 
-__rootpath = path.join(__dirname + './../');
-__dirname = path.join(__dirname + './../dist/');
+__srcpath = path.join(__dirname + './../');
+__dirname = path.join(__dirname + './../../dist/');
 
 const app = express();
 
@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const options = {
-  key: fs.readFileSync(path.join(__rootpath + "backend/.certs/private_key.pem")),
-  cert: fs.readFileSync(path.join(__rootpath + "backend/.certs/fullchain_key.pem"))
+  key: fs.readFileSync(path.join(__srcpath + "backend/.certs/private_key.pem")),
+  cert: fs.readFileSync(path.join(__srcpath + "backend/.certs/fullchain_key.pem"))
 };
 
 /**
