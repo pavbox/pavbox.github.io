@@ -8,18 +8,18 @@
 	display: inline-block;
 	transition: font-size 0.3s;
 	
-  text-decoration: none;
+  	text-decoration: none;
 	font-size: 35px;
 	line-height: 45px;
 	
-  text-align: center;
+  	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
 	
-  height: 45px;
+  	height: 45px;
 	width: 45px;
 	
-  &:hover {
+  	&:hover {
 		font-size: 40px;
 	}
 }
@@ -54,14 +54,13 @@
 		animation-timing-function: ease-in;
 		animation-fill-mode: forwards;
 		
-    height: 26px;
+    	height: 26px;
 		width: 26px;
 		
-    &:hover {
+    	&:hover {
 			height: 30px;
 			width: 30px;
-		
-      transition: all 0.3s ease;
+      		transition: all 0.3s ease;
 		}
 	}
 }

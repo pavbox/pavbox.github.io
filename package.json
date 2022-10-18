@@ -12,8 +12,12 @@
     "prettify": "prettier --write 'src/frontend/**/*.js'"
   },
   "keywords": [],
-  "devDependencies": {
+  "dependencies": {
     "@fortawesome/fontawesome-free": "5.5.0",
+    "express": "4.16.4",
+    "hsts": "2.2.0"
+  },
+  "devDependencies": {
     "@babel/core": "7.15.8",
     "@babel/plugin-proposal-class-properties": "7.14.5",
     "@babel/preset-env": "7.15.8",
