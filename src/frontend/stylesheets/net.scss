@@ -1,0 +1,79 @@
+
+.net {
+	display: block;
+	font-family: fontAwesome;
+}
+
+.net__ico {
+	display: inline-block;
+	transition: font-size 0.3s;
+	
+  text-decoration: none;
+	font-size: 35px;
+	line-height: 45px;
+	
+  text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	
+  height: 45px;
+	width: 45px;
+	
+  &:hover {
+		font-size: 40px;
+	}
+}
+
+.net__ico--vk {
+	color: #45668e;
+}
+
+.net__ico--tw {
+	color: #1da1f2;
+}
+
+.net__ico--git {
+	color: #333;
+}
+
+.net__ico--inst {
+	color: #c13584;
+}
+
+.net__ico--med {
+	color: rgba(0,0,0,0.84);
+}
+
+.net__ico--animated {
+	svg {
+		animation-name: animation-android;
+		animation-duration: 5s;
+		animation-delay: 2s;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+		animation-timing-function: ease-in;
+		animation-fill-mode: forwards;
+		
+    height: 26px;
+		width: 26px;
+		
+    &:hover {
+			height: 30px;
+			width: 30px;
+		
+      transition: all 0.3s ease;
+		}
+	}
+}
+
+@keyframes animation-android {
+  0%   { transform: rotate(0deg);  }
+  4%   { transform: rotate(20deg); }
+  7%   { transform: rotate(7deg);  }
+  11%  { transform: rotate(25deg); }
+  15%  { transform: rotate(4deg);  }
+  17%  { transform: rotate(17deg); }
+  20%  { transform: rotate(4deg);  }
+  22%  { transform: rotate(0deg);  }
+  100% { transform: rotate(0deg);  }
+}

@@ -1,8 +1,6 @@
 
-import './../stylesheets/main.styl';
 import realImage from './../assets/img/pixel_chuck.png';
 import Chuck from './Chuck';
-
 
 class Application {
   constructor() {

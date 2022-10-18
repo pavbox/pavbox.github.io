@@ -29,6 +29,10 @@ const options = {
  	new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
  });
 
+ app.get('/lera_congrats', function (req, res) {
+	new fs.ReadStream(path.join(__dirname + 'lera_congrats.html')).pipe(res)
+});
+
 app.get('*', function (req, res) {
 	let isCSS = (req.url.indexOf('.css') > 0)
 	let isJS = (req.url.indexOf('.js') > 0)
@@ -47,7 +51,7 @@ app.get('*', function (req, res) {
 		if (fs.existsSync(filePath)) {
 			new fs.ReadStream(filePath).pipe(res)
 		} else {
-      res.redirect('/')
+			res.redirect('/')
 		}
 		console.log("url: " + filePath);
 	} catch (e) {

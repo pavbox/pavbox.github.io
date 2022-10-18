@@ -1,16 +1,18 @@
 
-@import 'variables';
-@import 'page';
-@import 'me';
-@import 'net';
-@import 'chuck';
-@import 'delivery';
+@import "variables";
+@import "page";
+@import "me";
+@import "net";
+@import "chuck";
+@import "delivery";
 
 // temporary
-@import 'container';
-@import 'copyrights';
+@import "container";
+@import "copyrights";
 
-.main { }
+.main {
+  background-color: transparent;
+}
 
 .noselect {
   -webkit-touch-callout: none;

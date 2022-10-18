@@ -3,8 +3,8 @@ import Network from './Network';
 
 class Chuck {
   constructor(initDefaultEvents, unsetDefaultEvents, chuckImage) {
-    this.talk = this.talk.bind(this); // call chuck
-    this.thanks = this.thanks.bind(this); // close chuck
+    this.talk = this.talk.bind(this);
+    this.thanks = this.thanks.bind(this);
     this.mouseoverChuck = this.mouseoverChuck.bind(this);
     this.mouseleftFromChuck = this.mouseleftFromChuck.bind(this);
     this.changeAnimationKeyFrame = this.changeAnimationKeyFrame.bind(this);

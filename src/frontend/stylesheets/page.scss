@@ -1,0 +1,25 @@
+html, .page {
+	height: 100%;
+	max-height: 400px;
+}
+
+.page {
+	position: relative;
+	margin: 0;
+}
+
+.page--main {
+	padding: 0 15px;
+	margin: 0;
+	background: backgroundColor;
+
+  display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+  -ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+  align-items: center;
+}
