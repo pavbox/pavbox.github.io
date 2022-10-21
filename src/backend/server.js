@@ -25,13 +25,13 @@ const options = {
  * Routes.
  */
 
- app.get('/', function (req, res) {
- 	new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
- });
-
  app.get('/lera_congrats', function (req, res) {
 	new fs.ReadStream(path.join(__dirname + 'lera_congrats.html')).pipe(res)
 });
+
+ app.get('/', function (req, res) {
+ 	new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
+ }); 
 
 app.get('*', function (req, res) {
 	let isCSS = (req.url.indexOf('.css') > 0)
@@ -53,7 +53,6 @@ app.get('*', function (req, res) {
 		} else {
 			res.redirect('/')
 		}
-		console.log("url: " + filePath);
 	} catch (e) {
 		console.log(e);
 	} finally {

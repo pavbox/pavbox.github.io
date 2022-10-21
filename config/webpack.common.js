@@ -33,15 +33,6 @@ module.exports = {
         },
       ],
     }),
-
-    // Generates an HTML file from a template
-    // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
-    new HtmlWebpackPlugin({
-      title: 'webpack Boilerplate',
-      favicon: paths.src + '/assets/img/favicon.ico',
-      template: paths.src + '/assets/index.html', // template file
-      filename: 'index.html', // output file
-    }),
   ],
 
   // Determine how modules within the project are treated
@@ -51,10 +42,22 @@ module.exports = {
       { test: /\.js$/, use: ['babel-loader'] },
 
       // Images: Copy image files to build folder
-      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource',
+        generator: { filename: 'images/[name][ext]' }
+      },
 
       // Fonts and SVGs: Inline files
-      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
+      { 
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/resource',
+        generator: { filename: 'fonts/[name][ext]' } 
+      },
+
+      // Load Html files as is
+      {
+        test: /\.html/, type: 'asset/resource',
+        generator: { filename: '[name][ext]' } 
+      },
     ],
   },
 
