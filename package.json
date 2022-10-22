@@ -6,7 +6,7 @@
   "author": "pavbox",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve --port 8083 --config config/webpack.dev.js",
+    "start": "cross-env NODE_ENV=development webpack serve --port 8080 --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "lint": "eslint 'src/frontend/**/*.js' || true",
     "prettify": "prettier --write 'src/frontend/**/*.js'"

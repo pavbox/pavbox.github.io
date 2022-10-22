@@ -6,7 +6,12 @@ const paths = require('./paths')
 
 module.exports = {
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/main.js'],
+  entry: {
+    // pavbox application
+    mainpage: paths.src + '/main.js',
+    // temporary applications
+    lera: paths.src + '/application/temporary/lera_congrats_app.js'
+  },
 
   // Where webpack outputs the assets and bundles
   output: {
@@ -33,6 +38,49 @@ module.exports = {
         },
       ],
     }),
+
+    new HtmlWebpackPlugin({
+      title: 'main application',
+      favicon: paths.src + '/assets/img/favicon.ico',
+      template: paths.src + '/assets/pages/index.html',
+      filename: 'index.html',
+      // scripts: [
+      //   '/js/runtime.bundle.js',
+      //   '/js/main.bundle.js'
+      // ]
+
+      // advanced options
+      styles: '<link href="/styles/main.css" rel="stylesheet">',
+      scripts: '<script defer="defer" src="/js/main.bundle.js"></script>'
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'lera application',
+      favicon: paths.src + '/assets/img/favicon.ico',
+      template: paths.src + '/assets/pages/lera_congrats.html',
+      filename: 'lera_congrats.html',
+
+      // advanced options
+      // styles: '<link href="/styles/lera.styles.css" rel="stylesheet">',
+      // scripts: '<script defer="defer" src="/js/lera.bundle.js"></script>'
+
+      // scripts: [
+      //   '/js/runtime.bundle.js',
+      //   '/js/main.bundle.js'
+      // ]
+
+      // files: {
+        css: [
+          '<link href="/styles/lera.styles.css" rel="stylesheet">'
+        ],
+        js: [
+          '<script defer="defer" src="/js/runtime.bundle.js"></script>',
+          '<script defer="defer" src="/js/lera.bundle.js"></script>',
+        ]
+      // }
+    }),
+
+    
   ],
 
   // Determine how modules within the project are treated
@@ -52,12 +100,11 @@ module.exports = {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/resource',
         generator: { filename: 'fonts/[name][ext]' } 
       },
-
       // Load Html files as is
-      {
-        test: /\.html/, type: 'asset/resource',
-        generator: { filename: '[name][ext]' } 
-      },
+      // {
+      //   test: /\.html/, type: 'asset/resource',
+      //   generator: { filename: '[name][ext]' } 
+      // },
     ],
   },
 

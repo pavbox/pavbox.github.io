@@ -9,14 +9,7 @@ import '@/stylesheets/main.scss';
 import '@/application/Router';
 
 // start
-
 import Application from '@/application/Application';
 
 const application = new Application();
-
 application.init();
-
-import favicon from '@/assets/img/favicon.ico';
-
-const app = document.querySelector('head')
-app.append(favicon)

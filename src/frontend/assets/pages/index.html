@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="shortcut icon" type="image/ico" href="./images/favicon.ico"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <script defer="defer" src="./js/runtime.bundle.js"></script>
-  <script defer="defer" src="./js/main.bundle.js"></script>
-  <link href="./styles/main.css" rel="stylesheet">
+  <%= htmlWebpackPlugin.options.styles %>
+  <%= htmlWebpackPlugin.options.scripts %>
 
   <title>pavbox.com</title>
 </head>

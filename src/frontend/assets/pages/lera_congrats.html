@@ -2,17 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="shortcut icon" type="image/ico" href="./images/favicon.ico"/>
+  <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <script defer="defer" src="./js/runtime.bundle.js"></script>
-  <script defer="defer" src="./js/main.bundle.js"></script>
-  <link href="./styles/main.css" rel="stylesheet">
+  <%= htmlWebpackPlugin.options.styles %>
+  <%= htmlWebpackPlugin.options.scripts %>
 
   <title>ЛЕРА – ПАУЧИХА</title>
 </head>
-<body>
-    <div></div>
+<body class="lera-page-body">
+    <div class="lera-page">
+      <div>
+        <img class="lera-section-spider-1" src='images/spider-1.png'/>
+        <span class="lera-page-title">Лерусик!</span>
+        <span class="lera-page-desc">Мы поздравляем тебя с Днём рождения</span>
+      </div>
+      
+      <div class="lera-photos">
+        <span class="lera-photos-title  lera-page-title">Желаем тебе</span>
+        
+        <div class="lera-section">
+          <span class="lera-section-title  lera-page-desc">
+            Всегда быть самой активной
+          </span>
+          <div class="lera-section-grid">
+            <img src='images/section_one_1.jpg'/>
+            <img src='images/section_one_2.jpg'/>
+          </div>
+        </div>
+
+        <div class="lera-section">
+          <span class="lera-section-title  lera-page-desc">
+            Самой халяльной
+          </span>
+          <div class="lera-section-grid">
+            <img src='images/section_one_3.jpg'/>
+            <img src='images/section_one_4.jpg'/>
+          </div>
+        </div>
+
+        <div class="lera-section">
+          <span class="lera-section-title  lera-page-desc">
+            Самой прыгучей
+          </span>
+          <div class="lera-section-grid">
+            <img src='images/section_one_5.jpg'/>
+          </div>
+        </div>
+
+        <div class="lera-section">
+          <span class="lera-section-title  lera-page-desc">
+            Самой-самой!
+          </span>
+          <div class="lera-section-grid">
+            <img src='images/section_one_6.jpg'/>
+          </div>
+        </div>
+      </div>
+
+      <div class="lera-section-spider-wrapper">
+        <img class="lera-section-spider-2" src='images/spider-2.png'/>
+      </div>
+      <span class="lera-page-title">We love you Mrs Spider 😈</span>
+      <span class="lera-page-copyrights "><span class="lera-page-copyrights--emoji">🖤</span> Паша, Рита, Лёша</span>
+    </div>
 </body>
 </html>

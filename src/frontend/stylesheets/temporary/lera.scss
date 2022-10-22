@@ -1,0 +1,109 @@
+
+@font-face {
+    font-family: "brushFont";
+    src: url('../../assets/fonts/brush-spider.ttf') format('truetype');
+    
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+ }
+
+@font-face {
+    font-family: "pixelFont";
+    src: url('../../assets/fonts/pixel-spider.ttf') format('truetype');
+    
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+ }
+
+.lera-page-body {
+    background-color: #f990c1;
+    margin: 0;
+}
+
+ //fa7bb2
+ //f990c1
+.lera-page {
+    position: relative;
+    background-color: transparent;
+
+    padding-top: 70px;
+    padding-left: 16px;
+    padding-right: 16px;
+    
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+
+    max-width: 475px;
+    text-align: center;
+}
+
+.lera-page-title {
+    display: block;
+    padding-bottom: 30px;
+    
+    font-family: brushFont;
+    text-align: center;
+    font-size: 64px;
+}
+
+.lera-page-desc {
+    display: block;
+    padding-top: 20px;
+
+    font-family: pixelFont;
+    text-align: center;
+    font-size: 28px;
+    
+    line-height: 32px;
+}
+
+.lera-page-copyrights {
+    position: absolute;
+    display: block;
+    
+    padding-top: 20px;
+    padding-bottom: 12px;
+    padding-right: 8px;
+
+    font-family: pixelFont;
+    text-align: right;
+    font-size: 18px;
+    
+    line-height: 24px;
+
+    right: 0;
+}
+
+.lera-page-copyrights--emoji {
+    display: inline-block;
+    font-size: 25px;
+    line-height: 24px;
+}
+
+.lera-section-grid img {
+    width: 100%;
+}
+
+.lera-section-spider-wrapper {
+    position: relative;
+    width: 100px;
+    height: 90px;
+}
+
+.lera-section-spider-1 {
+    position: absolute;
+    right: 30px;
+    top: 0;
+    width: 100px;
+}
+
+.lera-section-spider-2 {
+    position: absolute;
+    left: -3px;
+
+    width: 100px;
+}
+
+// temporary
