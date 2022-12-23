@@ -1,0 +1,50 @@
+
+@font-face {
+    font-family: "pixelFont";
+    src: url('../../assets/fonts/pixel-spider.ttf') format('truetype');
+    
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+ }
+
+.benzo-page-body {
+    background-color: #e22dd0;
+    margin: 0;
+}
+
+.benzo-page {
+    position: relative;
+    background-color: transparent;
+
+    padding-top: 70px;
+    padding-left: 16px;
+    padding-right: 16px;
+    
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+
+    max-width: 475px;
+    text-align: center;
+}
+
+.benzo-page-title {
+    display: block;
+    padding-bottom: 30px;
+    
+    font-family: brushFont;
+    text-align: center;
+    font-size: 64px;
+}
+
+.benzo-page-desc {
+    display: block;
+    padding-top: 20px;
+
+    font-family: pixelFont;
+    text-align: center;
+    font-size: 28px;
+    
+    line-height: 32px;
+}

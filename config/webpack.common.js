@@ -80,6 +80,34 @@ module.exports = {
       // }
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'ny22 application',
+      favicon: paths.src + '/assets/img/favicon.ico',
+      template: paths.src + '/assets/pages/NY22.html',
+      filename: 'NY22.html',
+        css: [
+          '<link href="/styles/ny22.styles.css" rel="stylesheet">'
+        ],
+        js: [
+          '<script defer="defer" src="/js/runtime.bundle.js"></script>',
+          '<script defer="defer" src="/js/ny22.bundle.js"></script>',
+        ]
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'benzo application',
+      favicon: paths.src + '/assets/img/favicon.ico',
+      template: paths.src + '/assets/pages/benzo.html',
+      filename: 'benzo.html',
+        css: [
+          '<link href="/styles/benzo.styles.css" rel="stylesheet">'
+        ],
+        js: [
+          '<script defer="defer" src="/js/runtime.bundle.js"></script>',
+          '<script defer="defer" src="/js/benzo.bundle.js"></script>',
+        ]
+    }),
+
     
   ],
 

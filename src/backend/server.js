@@ -27,7 +27,15 @@ const options = {
 
  app.get('/lera_congrats', function (req, res) {
 	new fs.ReadStream(path.join(__dirname + 'lera_congrats.html')).pipe(res)
-});
+ });
+
+ app.get('/NY22', function (req, res) {
+	new fs.ReadStream(path.join(__dirname + 'NY22.html')).pipe(res)
+ });
+
+ app.get('/NY22/benzo', function (req, res) {
+	new fs.ReadStream(path.join(__dirname + 'benzo.html')).pipe(res)
+ });
 
  app.get('/', function (req, res) {
  	new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
