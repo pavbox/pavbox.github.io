@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --port 8080 --config config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "lint": "eslint 'src/frontend/**/*.js' || true",
+    "build": "cross-env NODE_ENV=development webpack --config config/webpack.prod.js",
+    "lint": "esc/flint 'srrontend/**/*.js' || true",
     "prettify": "prettier --write 'src/frontend/**/*.js'"
   },
   "keywords": [],

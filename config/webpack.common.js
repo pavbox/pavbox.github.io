@@ -8,7 +8,7 @@ module.exports = {
   // Where webpack looks to start building the bundle
   entry: {
     // pavbox application
-    mainpage: paths.src + '/main.js',
+    main: paths.src + '/main.js',
     // wayneris application
     wayneris: paths.src + '/application/wayneris/wayneris.js',
     // temporary applications
@@ -46,14 +46,9 @@ module.exports = {
       favicon: paths.src + '/assets/img/favicon.ico',
       template: paths.src + '/assets/pages/index.html',
       filename: 'index.html',
-      // scripts: [
-      //   '/js/runtime.bundle.js',
-      //   '/js/main.bundle.js'
-      // ]
-
-      // advanced options
-      styles: '<link href="/styles/main.css" rel="stylesheet">',
-      scripts: '<script defer="defer" src="/js/main.bundle.js"></script>'
+      mainStyles: '<link href="/main.styles.css" rel="stylesheet">',
+      mainScripts: '<script defer="defer" src="/runtime.bundle.js"></script><script defer="defer" src="/main.bundle.js"></script>',
+      inject: false
     }),
 
     new HtmlWebpackPlugin({
@@ -63,22 +58,18 @@ module.exports = {
       filename: 'lera_congrats.html',
 
       // advanced options
-      // styles: '<link href="/styles/lera.styles.css" rel="stylesheet">',
-      // scripts: '<script defer="defer" src="/js/lera.bundle.js"></script>'
+      // styles: '<link href="/lera.styles.css" rel="stylesheet">',
+      // scripts: '<script defer="defer" src="/lera.bundle.js"></script>'
 
       // scripts: [
-      //   '/js/runtime.bundle.js',
-      //   '/js/main.bundle.js'
+      //   '/runtime.bundle.js',
+      //   '/main.bundle.js'
       // ]
 
       // files: {
-        css: [
-          '<link href="/styles/lera.styles.css" rel="stylesheet">'
-        ],
-        js: [
-          '<script defer="defer" src="/js/runtime.bundle.js"></script>',
-          '<script defer="defer" src="/js/lera.bundle.js"></script>',
-        ]
+      leraStyles: '<link href="/lera.styles.css" rel="stylesheet">',
+      leraScripts: '<script defer="defer" src="/runtime.bundle.js"></script><script defer="defer" src="/lera.bundle.js"></script>',
+      inject: false
       // }
     }),
 
@@ -87,30 +78,23 @@ module.exports = {
       favicon: paths.src + '/assets/img/favicon.ico',
       template: paths.src + '/assets/pages/wayneris.html',
       filename: 'wayneris.html',
-        css: [
-          '<link href="/styles/wayneris.styles.css" rel="stylesheet">'
-        ],
-        js: [
-          '<script defer="defer" src="/js/runtime.bundle.js"></script>',
-          '<script defer="defer" src="/js/wayneris.bundle.js"></script>',
-        ]
+      waynerisStyles: '<link href="/wayneris.styles.css" rel="stylesheet">',
+      waynerisScripts: '<script defer="defer" src="/runtime.bundle.js"></script><script defer="defer" src="/wayneris.bundle.js"></script>',
+      inject: false
     }),
-
-    new HtmlWebpackPlugin({
-      title: 'benzo application',
-      favicon: paths.src + '/assets/img/favicon.ico',
-      template: paths.src + '/assets/pages/benzo.html',
-      filename: 'benzo.html',
-        css: [
-          '<link href="/styles/benzo.styles.css" rel="stylesheet">'
-        ],
-        js: [
-          '<script defer="defer" src="/js/runtime.bundle.js"></script>',
-          '<script defer="defer" src="/js/benzo.bundle.js"></script>',
-        ]
-    }),
-
-    
+    // new HtmlWebpackPlugin({
+    //   title: 'benzo application',
+    //   favicon: paths.src + '/assets/img/favicon.ico',
+    //   template: paths.src + '/assets/pages/benzo.html',
+    //   filename: 'benzo.html',
+    //     css: [
+    //       '<link href="/benzo.styles.css" rel="stylesheet">'
+    //     ],
+    //     js: [
+    //       '<script defer="defer" src="/runtime.bundle.js"></script>',
+    //       '<script defer="defer" src="/benzo.bundle.js"></script>',
+    //     ]
+    // }),
   ],
 
   // Determine how modules within the project are treated

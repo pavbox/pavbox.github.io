@@ -6,7 +6,7 @@ const strictTransportSecurity = require("hsts");
 const https = require("https");
 const proxy = require("http-proxy")
 
-const pavbox = 'pavbox.com';
+const pavbox = 'pavbox.*';
 const wayneris = 'wayneris.com';
 const port = 443;
 
@@ -75,7 +75,7 @@ wayapp.use(bodyParser.json());
  */
 
 wayapp.get('/', function (req, res) {
-  new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
+  new fs.ReadStream(path.join(__dirname + 'wayneris.html')).pipe(res)
 }); 
 
 wayapp.get('*', function (req, res) {
