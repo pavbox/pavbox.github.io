@@ -11,7 +11,7 @@ html, .page {
 .page--main {
 	padding: 0 15px;
 	margin: 0;
-	background: backgroundColor;
+	background-color: $backgroundColor;
 
 	display: -ms-flexbox;
 	display: -webkit-flex;
