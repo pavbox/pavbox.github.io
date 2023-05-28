@@ -4,8 +4,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const strictTransportSecurity = require("hsts");
 const https = require("https");
+const proxy = require("http-proxy")
 
-const hostname = 'pavbox.com';
+const pavbox = 'pavbox.com';
+const wayneris = 'wayneris.com';
 const port = 443;
 
 __srcpath = path.join(__dirname + './../');
@@ -16,13 +18,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const options = {
-  key: fs.readFileSync(path.join(__srcpath + "backend/.certs/private_key.pem")),
-  cert: fs.readFileSync(path.join(__srcpath + "backend/.certs/fullchain_key.pem"))
-};
-
 /**
- * Routes.
+ * Routes. Pavboxcom
  */
 
  app.get('/lera_congrats', function (req, res) {
@@ -68,10 +65,56 @@ app.get('*', function (req, res) {
 	}
 });
 
-https.createServer(options, app).listen(443);
+const wayapp = express()
 
-var http = require('http');
-http.createServer(function (req, res) {
-    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
-    res.end();
-}).listen(80);
+wayapp.use(bodyParser.urlencoded({ extended: true }));
+wayapp.use(bodyParser.json());
+
+/**
+ * Routes. Wayneris
+ */
+
+wayapp.get('/', function (req, res) {
+  new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
+}); 
+
+wayapp.get('*', function (req, res) {
+	let isCSS = (req.url.indexOf('.css') > 0)
+	let isJS = (req.url.indexOf('.js') > 0)
+	let isSVG = (req.url.indexOf('.svg') > 0)
+
+	if (isCSS) {
+		res.setHeader('Content-Type', 'text/css');
+	} else if (isJS) {
+		res.setHeader('Content-Type', 'text/javascript');
+	} else if (isSVG) {
+		res.setHeader('Content-Type', 'text/xml');
+	}
+
+	try {
+		let filePath = path.join(__dirname + req.url)
+		if (fs.existsSync(filePath)) {
+			new fs.ReadStream(filePath).pipe(res)
+		} else {
+			res.redirect('/')
+		}
+	} catch (e) {
+		console.log(e);
+	} finally {
+		console.log('exception is out');
+	}
+});
+
+
+var vhost = require('vhost')
+const proxyv = express()
+
+proxyv.use(vhost(pavbox, app))
+proxyv.use(vhost(wayneris, wayapp))
+
+const options = {
+  key: fs.readFileSync(path.join(__srcpath + "backend/.certs/private_key.pem")),
+  cert: fs.readFileSync(path.join(__srcpath + "backend/.certs/fullchain_key.pem"))
+};
+
+https.createServer(options, proxyv).listen(443);

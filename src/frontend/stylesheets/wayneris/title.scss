@@ -1,0 +1,45 @@
+
+.title {
+	& > span {
+		display: block;
+    text-align: center;
+	}
+}
+
+.title_avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  & > img {
+		width: 100px
+	}
+}
+
+.title__position {
+	font-family: ralewayMedium;
+	font-size: 15px;
+	margin: 0 4px;
+  
+  @media only screen and (max-width: $mobileResolution) {
+    & {
+      margin: 0 2px;
+    }
+  }
+}
+
+.title__name {
+  font-family: ralewayELight;
+  font-size: 60px;
+
+  @media only screen and (max-width: $mobileResolution) {
+    & {
+      font-size: 30px;
+    }
+  }
+}
+
+.title__direction {
+	font-family: ralewayLight;
+	font-size: 0px;
+}

@@ -9,6 +9,8 @@ module.exports = {
   entry: {
     // pavbox application
     mainpage: paths.src + '/main.js',
+    // wayneris application
+    wayneris: paths.src + '/application/wayneris/wayneris.js',
     // temporary applications
     lera: paths.src + '/application/temporary/lera_congrats_app.js'
   },
@@ -81,16 +83,16 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      title: 'ny22 application',
+      title: 'wayneris application',
       favicon: paths.src + '/assets/img/favicon.ico',
-      template: paths.src + '/assets/pages/NY22.html',
-      filename: 'NY22.html',
+      template: paths.src + '/assets/pages/wayneris.html',
+      filename: 'wayneris.html',
         css: [
-          '<link href="/styles/ny22.styles.css" rel="stylesheet">'
+          '<link href="/styles/wayneris.styles.css" rel="stylesheet">'
         ],
         js: [
           '<script defer="defer" src="/js/runtime.bundle.js"></script>',
-          '<script defer="defer" src="/js/ny22.bundle.js"></script>',
+          '<script defer="defer" src="/js/wayneris.bundle.js"></script>',
         ]
     }),
 
