@@ -46,7 +46,7 @@ module.exports = {
       favicon: paths.src + '/assets/img/favicon.ico',
       template: paths.src + '/assets/pages/index.html',
       filename: 'index.html',
-      mainStyles: '<link href="/main.styles.css" rel="stylesheet">',
+      mainStyles: '<link href="/main.css" rel="stylesheet">',
       mainScripts: '<script defer="defer" src="/runtime.bundle.js"></script><script defer="defer" src="/main.bundle.js"></script>',
       inject: false
     }),
@@ -58,7 +58,7 @@ module.exports = {
       filename: 'lera_congrats.html',
 
       // advanced options
-      // styles: '<link href="/lera.styles.css" rel="stylesheet">',
+      // styles: '<link href="/lera.css" rel="stylesheet">',
       // scripts: '<script defer="defer" src="/lera.bundle.js"></script>'
 
       // scripts: [
@@ -67,7 +67,7 @@ module.exports = {
       // ]
 
       // files: {
-      leraStyles: '<link href="/lera.styles.css" rel="stylesheet">',
+      leraStyles: '<link href="/lera.css" rel="stylesheet">',
       leraScripts: '<script defer="defer" src="/runtime.bundle.js"></script><script defer="defer" src="/lera.bundle.js"></script>',
       inject: false
       // }
@@ -78,7 +78,7 @@ module.exports = {
       favicon: paths.src + '/assets/img/favicon.ico',
       template: paths.src + '/assets/pages/wayneris.html',
       filename: 'wayneris.html',
-      waynerisStyles: '<link href="/wayneris.styles.css" rel="stylesheet">',
+      waynerisStyles: '<link href="/wayneris.css" rel="stylesheet">',
       waynerisScripts: '<script defer="defer" src="/runtime.bundle.js"></script><script defer="defer" src="/wayneris.bundle.js"></script>',
       inject: false
     }),
@@ -88,7 +88,7 @@ module.exports = {
     //   template: paths.src + '/assets/pages/benzo.html',
     //   filename: 'benzo.html',
     //     css: [
-    //       '<link href="/benzo.styles.css" rel="stylesheet">'
+    //       '<link href="/benzo.css" rel="stylesheet">'
     //     ],
     //     js: [
     //       '<script defer="defer" src="/runtime.bundle.js"></script>',
