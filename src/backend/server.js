@@ -118,3 +118,18 @@ const options = {
 };
 
 https.createServer(options, proxyv).listen(443);
+
+// secure
+
+const insecureApp = express()
+
+insecureApp.use(bodyParser.urlencoded({ extended: true }));
+insecureApp.use(bodyParser.json());
+
+insecureApp.get('*', function (req, res) {
+	if (!req.secure) {
+		res.redirect('https://' + req.hostname + req.url);
+	}
+});
+
+https.createServer(proxyv).listen(80);
