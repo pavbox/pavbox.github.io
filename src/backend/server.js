@@ -75,36 +75,12 @@ wayapp.use(bodyParser.json());
  */
 
 wayapp.get('/', function (req, res) {
-  new fs.ReadStream(path.join(__dirname + 'wayneris.html')).pipe(res)
+	res.redirect('https://wayneris.notion.site/wayneris/Margarita-Troyanskaya-1923c935b5e3471b981845249677c463');
 }); 
 
 wayapp.get('*', function (req, res) {
-	let isCSS = (req.url.indexOf('.css') > 0)
-	let isJS = (req.url.indexOf('.js') > 0)
-	let isSVG = (req.url.indexOf('.svg') > 0)
-
-	if (isCSS) {
-		res.setHeader('Content-Type', 'text/css');
-	} else if (isJS) {
-		res.setHeader('Content-Type', 'text/javascript');
-	} else if (isSVG) {
-		res.setHeader('Content-Type', 'text/xml');
-	}
-
-	try {
-		let filePath = path.join(__dirname + req.url)
-		if (fs.existsSync(filePath)) {
-			new fs.ReadStream(filePath).pipe(res)
-		} else {
-			res.redirect('/')
-		}
-	} catch (e) {
-		console.log(e);
-	} finally {
-		console.log('exception is out');
-	}
+	res.redirect('https://wayneris.notion.site/wayneris/Margarita-Troyanskaya-1923c935b5e3471b981845249677c463');
 });
-
 
 var vhost = require('vhost')
 const proxyv = express()
@@ -132,4 +108,4 @@ insecureApp.get('*', function (req, res) {
 	}
 });
 
-https.createServer(proxyv).listen(80);
+https.createServer(insecureApp).listen(80);
