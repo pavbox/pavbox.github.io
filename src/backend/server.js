@@ -2,110 +2,69 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const strictTransportSecurity = require("hsts");
-const https = require("https");
-const proxy = require("http-proxy")
 
-const pavbox = 'pavbox.*';
-const wayneris = 'wayneris.com';
-const port = 443;
+// Constants
+const PORT = 9000;  // Changed to a standard HTTP port
 
-__srcpath = path.join(__dirname + './../');
-__dirname = path.join(__dirname + './../../dist/');
-
+// Initialize Express app
 const app = express();
 
+// Configure middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-/**
- * Routes. Pavboxcom
- */
+// Set paths
+const __srcpath = path.join(__dirname, './../');
+const __distpath = path.join(__dirname, './../../dist/');
 
- app.get('/lera_congrats', function (req, res) {
-	new fs.ReadStream(path.join(__dirname + 'lera_congrats.html')).pipe(res)
- });
-
- app.get('/NY22', function (req, res) {
-	new fs.ReadStream(path.join(__dirname + 'NY22.html')).pipe(res)
- });
-
- app.get('/NY22/benzo', function (req, res) {
-	new fs.ReadStream(path.join(__dirname + 'benzo.html')).pipe(res)
- });
-
- app.get('/', function (req, res) {
- 	new fs.ReadStream(path.join(__dirname + 'index.html')).pipe(res)
- }); 
-
-app.get('*', function (req, res) {
-	let isCSS = (req.url.indexOf('.css') > 0)
-	let isJS = (req.url.indexOf('.js') > 0)
-	let isSVG = (req.url.indexOf('.svg') > 0)
-
-	if (isCSS) {
-	 res.setHeader('Content-Type', 'text/css');
-	} else if (isJS) {
-	 res.setHeader('Content-Type', 'text/javascript');
-        } else if (isSVG) {
-	 res.setHeader('Content-Type', 'text/xml');
-	}
-
-	try {
-		let filePath = path.join(__dirname + req.url)
-		if (fs.existsSync(filePath)) {
-			new fs.ReadStream(filePath).pipe(res)
-		} else {
-			res.redirect('/')
-		}
-	} catch (e) {
-		console.log(e);
-	} finally {
-		console.log('exception is out');
-	}
+// Routes
+app.get('/lera_congrats', (req, res) => {
+    new fs.ReadStream(path.join(__distpath, 'lera_congrats.html')).pipe(res);
 });
 
-const wayapp = express()
-
-wayapp.use(bodyParser.urlencoded({ extended: true }));
-wayapp.use(bodyParser.json());
-
-/**
- * Routes. Wayneris
- */
-
-wayapp.get('/', function (req, res) {
-	res.redirect('https://wayneris.notion.site/wayneris/Margarita-Troyanskaya-1923c935b5e3471b981845249677c463');
-}); 
-
-wayapp.get('*', function (req, res) {
-	res.redirect('https://wayneris.notion.site/wayneris/Margarita-Troyanskaya-1923c935b5e3471b981845249677c463');
+app.get('/NY22', (req, res) => {
+    new fs.ReadStream(path.join(__distpath, 'NY22.html')).pipe(res);
 });
 
-var vhost = require('vhost')
-const proxyv = express()
-
-proxyv.use(vhost(pavbox, app))
-proxyv.use(vhost(wayneris, wayapp))
-
-const options = {
-  key: fs.readFileSync(path.join(__srcpath + "backend/.certs/private_key.pem")),
-  cert: fs.readFileSync(path.join(__srcpath + "backend/.certs/fullchain_key.pem"))
-};
-
-https.createServer(options, proxyv).listen(443);
-
-// secure
-
-const insecureApp = express()
-
-insecureApp.use(bodyParser.urlencoded({ extended: true }));
-insecureApp.use(bodyParser.json());
-
-insecureApp.get('*', function (req, res) {
-	if (!req.secure) {
-		res.redirect('https://' + req.hostname + req.url);
-	}
+app.get('/NY22/benzo', (req, res) => {
+    new fs.ReadStream(path.join(__distpath, 'benzo.html')).pipe(res);
 });
 
-https.createServer(insecureApp).listen(80);
+app.get('/', (req, res) => {
+    new fs.ReadStream(path.join(__distpath, 'index.html')).pipe(res);
+});
+
+// Static file handling with proper content types
+app.get('*', (req, res) => {
+    const contentTypes = {
+        '.css': 'text/css',
+        '.js': 'text/javascript',
+        '.svg': 'text/xml',
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.gif': 'image/gif'
+    };
+
+    try {
+        const filePath = path.join(__distpath, req.url);
+        const ext = path.extname(req.url);
+        
+        if (contentTypes[ext]) {
+            res.setHeader('Content-Type', contentTypes[ext]);
+        }
+
+        if (fs.existsSync(filePath)) {
+            new fs.ReadStream(filePath).pipe(res);
+        } else {
+            res.redirect('/');
+        }
+    } catch (error) {
+        console.error('Error serving file:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
